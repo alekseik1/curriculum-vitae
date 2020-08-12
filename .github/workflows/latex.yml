@@ -36,7 +36,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    #if: github.ref == 'refs/heads/master'
     needs: [build]
     steps:
       - name: Get current date
@@ -53,12 +53,29 @@ jobs:
 
       - name: Create Release
         uses: actions/create-release@v1
+        id: create_release
         env:
-          TAG_NAME: ${{ steps.date.outputs.date }}
-          RELEASE_NAME: ${{ steps.date.outputs.date }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions
         with:
-          tag_name: cv-${{ steps.date.outputs.date }}
+          tag_name: cv ${{ steps.date.outputs.date }} (${{ github.ref }})
           release_name: CV (version ${{ steps.date.outputs.date }})
           draft: false
           prerelease: false
+      - name: Upload russian CV asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./CV_ru.pdf
+          asset_name: CV_ru.pdf
+          asset_content_type: application/pdf
+      - name: Upload english CV asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./CV_en.pdf
+          asset_name: CV_en.pdf
+          asset_content_type: application/pdf
