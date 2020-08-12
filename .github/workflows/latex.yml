@@ -19,7 +19,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: two-page_cv_ru
-        path: CV_ru.pdf
+        path: two-page_cv_ru/CV_ru.pdf
     # English
     - name: Build two-page english
       uses: xu-cheng/latex-action@v2
@@ -32,4 +32,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: two-page_cv_ru
-        path: CV_en.pdf
+        path: two-page_cv/CV_en.pdf
