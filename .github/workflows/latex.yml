@@ -43,7 +43,6 @@ jobs:
         id: vars
         run: |
           echo "::set-output name=date::$(date +'%Y-%m-%d')"
-          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
       - name: Download two-page russian
         uses: actions/download-artifact@v2
         with:
@@ -59,7 +58,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions
         with:
-          tag_name: cv-${{ steps.vars.outputs.date }}-$(git rev-parse --short "$GITHUB_SHA")
+          tag_name: cv-${{ steps.vars.outputs.date }}-${GITHUB_SHA::8}
           release_name: CV (version ${{ steps.vars.outputs.date }})
           draft: false
           prerelease: false
