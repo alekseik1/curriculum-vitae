@@ -1,0 +1,39 @@
+name: Build and deploy to GitHub Pages
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    # Russian
+    - name: Build two-page russian
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: mmayer.tex
+        working_directory: two-page_cv_ru
+        args: -jobname=CV_ru.pdf
+        compiler: latexmk
+    - name: Upload two-page russian
+      uses: actions/upload-artifact@v2
+      with:
+        name: two-page_cv_ru
+        path: two-page_cv_ru/CV_ru.pdf
+    # English
+    - name: Build two-page english
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: mmayer.tex
+        working_directory: two-page_cv
+        args: -jobname=CV_en.pdf
+        compiler: latexmk
+    - name: Upload two-page english
+      uses: actions/upload-artifact@v2
+      with:
+        name: two-page_cv_ru
+        path: two-page_cv_ru/CV_en.pdf
