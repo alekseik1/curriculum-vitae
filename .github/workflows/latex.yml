@@ -59,7 +59,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions
         with:
-          tag_name: cv-${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.sha_short }}
+          tag_name: cv-${{ steps.vars.outputs.date }}-${git rev-parse --short "$GITHUB_SHA"}
           release_name: CV (version ${{ steps.vars.outputs.date }})
           draft: false
           prerelease: false
