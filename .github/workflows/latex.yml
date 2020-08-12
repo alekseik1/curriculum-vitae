@@ -13,7 +13,7 @@ jobs:
       with:
         root_file: mmayer.tex
         working_directory: two-page_cv_ru
-        args: -jobname=CV_ru.pdf
+        args: -jobname=CV_ru
         compiler: latexmk
     - name: Upload two-page russian
       uses: actions/upload-artifact@v2
@@ -26,7 +26,7 @@ jobs:
       with:
         root_file: mmayer.tex
         working_directory: two-page_cv
-        args: -jobname=CV_en.pdf
+        args: -jobname=CV_en
         compiler: latexmk
     - name: Upload two-page english
       uses: actions/upload-artifact@v2
