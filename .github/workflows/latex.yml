@@ -16,7 +16,6 @@ jobs:
         args: -jobname=CV_ru.pdf
         compiler: latexmk
     - name: Upload two-page russian
-      if: github.ref == 'refs/heads/master'
       uses: actions/upload-artifact@v2
       with:
         name: two-page_cv_ru
@@ -30,7 +29,6 @@ jobs:
         args: -jobname=CV_en.pdf
         compiler: latexmk
     - name: Upload two-page english
-      if: github.ref == 'refs/heads/master'
       uses: actions/upload-artifact@v2
       with:
         name: two-page_cv_ru
