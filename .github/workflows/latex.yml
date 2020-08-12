@@ -1,9 +1,9 @@
 name: Build and deploy to GitHub Pages
 on:
   push:
-    branches: [ master ]
+    branches: [ * ]
   pull_request:
-    branches: [ master ]
+    branches: [ * ]
 jobs:
   build:
     # The type of runner that the job will run on
@@ -20,6 +20,9 @@ jobs:
         args: -jobname=CV_ru.pdf
         compiler: latexmk
     - name: Upload two-page russian
+      on:
+        push:
+          branches: [ master ]
       uses: actions/upload-artifact@v2
       with:
         name: two-page_cv_ru
@@ -33,6 +36,9 @@ jobs:
         args: -jobname=CV_en.pdf
         compiler: latexmk
     - name: Upload two-page english
+      on:
+        push:
+          branches: [ master ]
       uses: actions/upload-artifact@v2
       with:
         name: two-page_cv_ru
