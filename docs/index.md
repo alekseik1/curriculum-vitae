@@ -1,6 +1,6 @@
 _English version is below_
 ## Добро пожаловать!
-На этой странице находится акутальная версия моего CV. Чтобы загрузить его, перейдите по одной из ссылок.
+На этой странице находится актуальная версия моего CV. Чтобы загрузить его, перейдите по одной из ссылок.
 
 [Русская версия](https://github.com/alekseik1/curriculum-vitae/releases/latest/download/CV_ru.pdf) |
 [Английская версия](https://github.com/alekseik1/curriculum-vitae/releases/latest/download/CV_en.pdf)
