@@ -39,9 +39,11 @@ jobs:
     #if: github.ref == 'refs/heads/master'
     needs: [build]
     steps:
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      - name: Variables
+        id: vars
+        run: |
+          echo "::set-output name=date::$(date +'%Y-%m-%d')"
+          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
       - name: Download two-page russian
         uses: actions/download-artifact@v2
         with:
@@ -57,8 +59,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions
         with:
-          tag_name: cv ${{ steps.date.outputs.date }} (${{ github.ref }})
-          release_name: CV (version ${{ steps.date.outputs.date }})
+          tag_name: cv-${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.sha_short }}
+          release_name: CV (version ${{ steps.vars.outputs.date }})
           draft: false
           prerelease: false
       - name: Upload russian CV asset
