@@ -1,0 +1,147 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{green}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+\usepackage{amsmath}
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% BAD BOY. \vspace bad practice, sorry!
+\vspace{-2cm}
+% personal data
+\name{Aleksei}{Kozharin}
+%\title{Resumé title}                               % optional, remove / comment the line if not wanted
+\address{}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\phone[mobile]{+7~(950)~005~94~75}                   % optional, remove / comment the line if not wanted
+%\phone[fixed]{+2~(345)~678~901}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+\email{1alekseik1@gmail.com}                               % optional, remove / comment the line if not wanted
+%\homepage{www.johndoe.com}                         % optional, remove / comment the line if not wanted
+\extrainfo{}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{Education}
+\cventry{2016--2020}{Moscow Institute of Physics and Technology}{}{}{}{
+Department of Molecular and Chemical Physics (B.S.) \\ 
+field of study: Applied Mathematics and Physics \\
+Learned Subjects -- relevant \\
+	%\underline{Mathematics:} calculus, analytic geometry, linear algebra, differential equations, complex analysis, probability theory\\
+	%\underline{Physics:} general physics (mechanics, thermodynamics and molecular physics, electricity, optics, quantum mechanics), analytical mechanics, field theory\\
+	%\underline{Chemistry:} organic and inorganic, analytical chemistry, physical chemistry\\
+	%\underline{Other}: computer science (data structures, graph theory and algorithms), data processing \\
+	Average Grade: 9.0/10.0 In the top-10\% of the department.}  % arguments 3 to 6 can be left empty
+%\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+
+\section{Work experience}
+\cventry{May~18--Oct~18}{Junior Python backend developer }{}{}{}{Developed module for interaction with Bitcoin main net via JSONRPC with Celery integration.}
+\cventry{Oct~18--Dec~18}{Tutor of physics at university}{}{}{}{Checked homework and arranged tests.}
+
+\section{Education and training}
+%\cvitem{Aug 2017}{<<Combinatorics for beginners>> by Moscow Institute of Physics and Technology on Coursera}{}{}{}{}
+\cvitem{Jan 18}{<<Supervised learning>> \href{https://www.coursera.org/learn/supervised-learning?specialization=machine-learning-data-analysis on}{\underline{Coursera}}}{}{}{}{}
+\cvitem{Mar 18}{<<Unsupervised learning>> on \href{https://www.coursera.org/learn/unsupervised-learning?specialization=machine-learning-data-analysis}{\underline{Coursera}}}{}{}{}{}
+\cvitem{Jul 18}{<<Game theory>> on \href{https://www.coursera.org/learn/gametheory}{\underline{Coursera}}}{}{}{}{}
+\cvitem{Sep 18}{<<Basics of HTML as CSS>> on \href{https://www.coursera.org/learn/snovy-html-i-css?specialization=razrabotka-interfeysov}{\underline{Coursera}}}{}{}{}{}
+\cvitem{Oct 18}{<<Basics of JavaScript>> on \href{https://www.coursera.org/learn/javascript-osnovy-i-funktsii}{\underline{Coursera}}}{}{}{}{}
+\cvitem{Sep~18--Dec~18}{<<Techno track>> full-stack developer educational programm by \href{https://track.mail.ru/}{\underline{Mail.ru}}}{}{}{}{}
+%\newpage
+
+%----------------------------------------------------------------------------------------
+%	AWARDS SECTION
+%----------------------------------------------------------------------------------------
+\section{Honors \& Awards}
+
+%\cventry{Apr 14}{Prize-winner of the final stage of the Russian National Olympiad of Schoolchildren in Chemistry}{subject: chemistry}{}{}{}
+\cvitem{Apr 14 and Apr 15}{Prize-winner of the final stage of the Russian National Olympiad of Schoolchildren in Chemistry}{}{}{}{}
+%\cventry{February 2015}{Prize-winner of the regional stage of the All-Russian Olympiad of Schoolchildren in Physics}{subject: physics}{}{}{}
+%\cventry{February 2015}{Prize-winner of the regional stage of the All-Russian Olympiad of Schoolchildren in Chemistry}{subject: chemistry}{}{}{}
+%\cventry{Jan 16}{Prize-winner of the regional stage of the Russian National Olympiad of Schoolchildren in Physics}{subject: physics}{}{}{}
+
+%----------------------------------------------------------------------------------------
+%	Skills SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Skills \& Abilities}
+
+% PROGRAMMING
+\cvitem{Programming Languages}{Python, C++, Java, JavaScript}
+% LABORATORY
+\cvitem{Laboratory Skills}{Basic routine chemical methods (solutions preparing, titration, pH measurement), organic synthesis, electrical signal observing methods (CRO/DSO), paper cromatography}
+\cvitem{Software}{Linux and MacOS terminal (Bash)}
+\cvitem{Programming}{
+	\begin{itemize}
+		\item Python math stuff (numpy, matplotlib, scipy, sklearn, pandas, sympy, jupyter). 
+%Several projects are on GitHub: \href{https://github.com/alekseik1/phys\_labs}{\underline{data analysis}}, \href{https://github.com/alekseik1/machine\_learning\_coursera}{\underline{machine learning educational repo}}.
+		\item LaTeX~ system. 
+%Serveral projects are hosted on GitHub: \href{https://github.com/alekseik1/quest\_on\_choice}{\underline{small notes on physical phenomena}}, \href{https://github.com/alekseik1/latex\_works}{\underline{educational materials}}, \href{https://github.com/alekseik1/cpp\_mipt\_study}{\underline{C++ lectures}}
+	\end{itemize}
+	Several projects are on \href{https://github.com/alekseik1/}{\underline{GitHub}}
+}
+
+\section{Languages}
+\cvitemwithcomment{English}{Upper-Intermediate}{}
+\cvitemwithcomment{Russian}{Native speaker}{}
+
+
+
+% Let's leave it for a better day
+%\section{Computer skills}
+%\cvdoubleitem{Python}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
+%\cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
+%\cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+
+\section{Interests \& Hobbies}
+\cvlistitem{Jogging}
+\cvlistitem{Take part in student council}
+\cvlistitem{Like to play around with computers and different ways of routine automation}
+
+%\section{Extra 1}
+%\cvlistitem{Item 1}
+%\cvlistitem{Item 2}
+%\cvlistitem{Item 3. This item is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+%\section{Extra 2}
+%\cvlistdoubleitem{Item 1}{Item 4}
+%\cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
+%\cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
+
+\end{document}
+
+
+%% end of file `template.tex'.
