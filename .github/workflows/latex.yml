@@ -7,6 +7,8 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    # Cache docker layers
+    - uses: satackey/action-docker-layer-caching@v0.0.8
     # Russian
     - name: Build two-page russian
       uses: xu-cheng/latex-action@v2
