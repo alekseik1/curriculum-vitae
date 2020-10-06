@@ -19,6 +19,17 @@ jobs:
       with:
         name: cs_cv_en
         path: cs/en/main.pdf
+    - name: Build CS CV RU
+      uses: dante-ev/latex-action@v0.2.0
+      with:
+        root_file: main.tex
+        working_directory: cs/ru
+        compiler: latexmk
+    - name: Upload CS CV ENG
+      uses: actions/upload-artifact@v2
+      with:
+        name: cs_cv_ru
+        path: cs/ru/main.pdf
   deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
@@ -29,15 +40,6 @@ jobs:
         run: |
           echo "::set-output name=date::$(date +'%Y-%m-%d')"
           echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
-      # - name: Download two-page russian
-      #   uses: actions/download-artifact@v2
-      #   with:
-      #     name: cv_ru
-      - name: Download CS CV ENG
-        uses: actions/download-artifact@v2
-        with:
-          name: cs_cv_en
-
       - name: Create Release
         uses: actions/create-release@v1
         id: create_release
@@ -48,16 +50,11 @@ jobs:
           release_name: CV (version ${{ steps.vars.outputs.date }})
           draft: false
           prerelease: false
-      # - name: Upload russian CV asset
-      #   uses: actions/upload-release-asset@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     asset_path: ./CV_ru.pdf
-      #     asset_name: CV_ru.pdf
-      #     asset_content_type: application/pdf
-      - name: Upload english CV asset
+      - name: Download CS CV ENG
+        uses: actions/download-artifact@v2
+        with:
+          name: cs_cv_en
+      - name: Upload CS CV ENG
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -65,4 +62,17 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./main.pdf
           asset_name: CS_CV_en.pdf
+          asset_content_type: application/pdf
+      - name: Download CS CV RU
+        uses: actions/download-artifact@v2
+        with:
+          name: cs_cv_ru
+      - name: Upload CS CV RU
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./main.pdf
+          asset_name: CS_CV_ru.pdf
           asset_content_type: application/pdf
