@@ -7,33 +7,19 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    # Russian
-    - name: Build two-page russian
-      uses: xu-cheng/latex-action@v2
-      with:
-        root_file: mmayer.tex
-        working_directory: two-page_cv_ru
-        args: -jobname=CV_ru -pdf -file-line-error -halt-on-error -interaction=nonstopmode
-        compiler: latexmk
-    - name: Upload two-page russian
-      uses: actions/upload-artifact@v2
-      with:
-        name: cv_ru
-        path: two-page_cv_ru/CV_ru.pdf
     # English
-    - name: Build two-page english
+    - name: Build CS CV ENG
       uses: xu-cheng/latex-action@v2
       with:
-        root_file: mmayer.tex
-        working_directory: two-page_cv
-        args: -jobname=CV_en -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+        root_file: main.tex
+        working_directory: cs/en
+        args: -jobname=CS_CV_en -pdf -file-line-error -halt-on-error -interaction=nonstopmode
         compiler: latexmk
-    - name: Upload two-page english
+    - name: Upload CS CV ENG
       uses: actions/upload-artifact@v2
       with:
-        name: cv_en
-        path: two-page_cv/CV_en.pdf
-
+        name: cs_cv_en
+        path: cs/en/CS_CV_en.pdf
   deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
@@ -44,14 +30,14 @@ jobs:
         run: |
           echo "::set-output name=date::$(date +'%Y-%m-%d')"
           echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
-      - name: Download two-page russian
+      # - name: Download two-page russian
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: cv_ru
+      - name: Download CS CV ENG
         uses: actions/download-artifact@v2
         with:
-          name: cv_ru
-      - name: Download two-page english
-        uses: actions/download-artifact@v2
-        with:
-          name: cv_en
+          name: cs_cv_en
 
       - name: Create Release
         uses: actions/create-release@v1
@@ -63,21 +49,21 @@ jobs:
           release_name: CV (version ${{ steps.vars.outputs.date }})
           draft: false
           prerelease: false
-      - name: Upload russian CV asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./CV_ru.pdf
-          asset_name: CV_ru.pdf
-          asset_content_type: application/pdf
+      # - name: Upload russian CV asset
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #     asset_path: ./CV_ru.pdf
+      #     asset_name: CV_ru.pdf
+      #     asset_content_type: application/pdf
       - name: Upload english CV asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./CV_en.pdf
-          asset_name: CV_en.pdf
+          asset_path: ./CS_CV_en.pdf
+          asset_name: CS_CV_en.pdf
           asset_content_type: application/pdf

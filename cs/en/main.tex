@@ -1,0 +1,37 @@
+\input{../../common/preambula}
+\begin{document}
+\input{../../common/personal_info}
+
+%% Make the header extend all the way to the right, if you want.
+\begin{fullwidth}
+\makecvheader
+\end{fullwidth}
+
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+%\AtBeginEnvironment{itemize}{\small}
+
+%% Provide the file name containing the sidebar contents as an optional parameter to \cvsection.
+%% You can always just use \marginpar{...} if you do
+%% not need to align the top of the contents to any
+%% \cvsection title in the "main" bar.
+\cvsection[page1sidebar]{Education}
+
+\input{mipt-bachelor}
+% \divider
+
+% \input{mipt-masters}
+
+\cvsection{Work experience}
+\input{../../experience/en/take_wing}
+\divider
+
+\input{../../experience/en/amgen}
+\divider
+
+\input{../../experience/en/mapsme}
+\divider
+
+\input{../../experience/en/mrg_smsapi}
+\divider
+
+\end{document}
