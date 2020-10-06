@@ -1,0 +1,52 @@
+\input{../../common/preambula}
+
+%%% Работа с русским языком % для pdfLatex
+\ifxetexorluatex
+\else
+\usepackage{cmap}					% поиск в~PDF
+\usepackage{mathtext} 				% русские буквы в~фомулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+\usepackage{indentfirst} 			% отступ 1 абзаца
+\usepackage{gensymb}				% мат символы?
+\fi
+
+\begin{document}
+\input{../../common/personal_info}
+\name{Алексей Кожарин}
+\tagline{}
+
+%% Make the header extend all the way to the right, if you want.
+\begin{fullwidth}
+\makecvheader
+\end{fullwidth}
+
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+%\AtBeginEnvironment{itemize}{\small}
+
+%% Provide the file name containing the sidebar contents as an optional parameter to \cvsection.
+%% You can always just use \marginpar{...} if you do
+%% not need to align the top of the contents to any
+%% \cvsection title in the "main" bar.
+\cvsection[page1sidebar]{Образование}
+
+\input{mipt-bachelor}
+% \divider
+
+% \input{mipt-masters}
+
+\cvsection{Опыт работы}
+\input{../../experience/ru/take_wing}
+\divider
+
+\input{../../experience/ru/amgen}
+\divider
+
+\input{../../experience/ru/mapsme}
+\divider
+
+\input{../../experience/ru/mrg_smsapi}
+\divider
+
+\end{document}
