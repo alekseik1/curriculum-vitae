@@ -12,8 +12,10 @@ jobs:
     # English
     - name: Build CS CV ENG
       run: |
-        export FILE_PATH=cs/en/main.tex
-        latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=$PWD $FILE_PATH
+        export DIRECTORY=cs/en/
+        export FILE=main.tex
+        cd $DIRECTORY
+        latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=$PWD $FILE
     - name: Upload CS CV ENG
       uses: actions/upload-artifact@v2
       with:
@@ -21,8 +23,9 @@ jobs:
         path: cs/en/main.pdf
     - name: Build CS CV RU
       run: |
-        export FILE_PATH=cs/ru/main.tex
-        latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=$PWD $FILE_PATH
+        export DIRECTORY=cs/ru/
+        export FILE=main.tex
+        latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=$PWD $FILE
     - name: Upload CS CV ENG
       uses: actions/upload-artifact@v2
       with:
