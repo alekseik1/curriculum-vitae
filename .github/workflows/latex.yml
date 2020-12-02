@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v2
     # English
     - name: Build CS CV ENG
-      uses: dante-ev/latex-action@v0.2.0
+      uses: xu-cheng/latex-action@v2
       with:
         root_file: main.tex
         working_directory: cs/en
@@ -20,7 +20,7 @@ jobs:
         name: cs_cv_en
         path: cs/en/main.pdf
     - name: Build CS CV RU
-      uses: dante-ev/latex-action@v0.2.0
+      uses: xu-cheng/latex-action@v2
       with:
         root_file: main.tex
         working_directory: cs/ru
