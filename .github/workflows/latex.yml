@@ -4,32 +4,27 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    container:
+      image: danteev/texlive:202009150206298488ac
+    strategy:
+      matrix:
+        lang: ["ru", "en"]
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     # English
-    - name: Build CS CV ENG
-      uses: dante-ev/latex-action@v0.2.0
-      with:
-        root_file: main.tex
-        working_directory: cs/en
-        compiler: latexmk
-    - name: Upload CS CV ENG
+    - name: Build CS CV ${{ matrix.lang }}
+      env:
+        DIRECTORY: cs/${{ matrix.lang }}
+        FILE: main.tex
+      run: |
+        cd $DIRECTORY
+        latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=$PWD $FILE
+    - name: Upload CS CV ${{ matrix.lang }}
       uses: actions/upload-artifact@v2
       with:
-        name: cs_cv_en
-        path: cs/en/main.pdf
-    - name: Build CS CV RU
-      uses: dante-ev/latex-action@v0.2.0
-      with:
-        root_file: main.tex
-        working_directory: cs/ru
-        compiler: latexmk
-    - name: Upload CS CV ENG
-      uses: actions/upload-artifact@v2
-      with:
-        name: cs_cv_ru
-        path: cs/ru/main.pdf
+        name: cs_cv_${{ matrix.lang }}
+        path: cs/${{ matrix.lang }}/main.pdf
   deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
