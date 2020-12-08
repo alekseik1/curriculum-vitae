@@ -71,3 +71,16 @@ jobs:
           asset_path: ./main.pdf
           asset_name: CS_CV_ru.pdf
           asset_content_type: application/pdf
+      - name: Download CS CV DE
+        uses: actions/download-artifact@v2
+        with:
+          name: cs_cv_de
+      - name: Upload CS CV DE
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./main.pdf
+          asset_name: CS_CV_de.pdf
+          asset_content_type: application/pdf
