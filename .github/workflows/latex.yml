@@ -12,7 +12,6 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    # English
     - name: Build CS CV ${{ matrix.lang }}
       env:
         DIRECTORY: cs/${{ matrix.lang }}
@@ -29,6 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     needs: [build]
+    strategy:
+      matrix:
+        lang: ["ru", "en", "de"]
     steps:
       - name: Variables
         id: vars
@@ -45,42 +47,16 @@ jobs:
           release_name: CV (version ${{ steps.vars.outputs.date }})
           draft: false
           prerelease: false
-      - name: Download CS CV ENG
+      - name: Download CS CV ${{ matrix.lang }}
         uses: actions/download-artifact@v2
         with:
-          name: cs_cv_en
-      - name: Upload CS CV ENG
+          name: cs_cv_${{ matrix.lang }}
+      - name: Upload CS CV ${{ matrix.lang }}
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./main.pdf
-          asset_name: CS_CV_en.pdf
-          asset_content_type: application/pdf
-      - name: Download CS CV RU
-        uses: actions/download-artifact@v2
-        with:
-          name: cs_cv_ru
-      - name: Upload CS CV RU
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./main.pdf
-          asset_name: CS_CV_ru.pdf
-          asset_content_type: application/pdf
-      - name: Download CS CV DE
-        uses: actions/download-artifact@v2
-        with:
-          name: cs_cv_de
-      - name: Upload CS CV DE
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./main.pdf
-          asset_name: CS_CV_de.pdf
+          asset_name: CS_CV_${{ matrix.lang }}.pdf
           asset_content_type: application/pdf
