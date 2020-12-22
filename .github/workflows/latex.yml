@@ -24,13 +24,10 @@ jobs:
       with:
         name: cs_cv_${{ matrix.lang }}
         path: cs/${{ matrix.lang }}/main.pdf
-  deploy:
+  create_release:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     needs: [build]
-    strategy:
-      matrix:
-        lang: ["ru", "en", "de"]
     steps:
       - name: Variables
         id: vars
@@ -47,6 +44,14 @@ jobs:
           release_name: CV (version ${{ steps.vars.outputs.date }})
           draft: false
           prerelease: false
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    needs: [create_release]
+    strategy:
+      matrix:
+        lang: ["ru", "en", "de"]
+    steps:
       - name: Download CS CV ${{ matrix.lang }}
         uses: actions/download-artifact@v2
         with:
