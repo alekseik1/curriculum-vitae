@@ -1,4 +1,4 @@
-name: Build and deploy latex sources to GitHub Pages
+name: "Build & deploy to GH Pages"
 on: push
 jobs:
   build:
