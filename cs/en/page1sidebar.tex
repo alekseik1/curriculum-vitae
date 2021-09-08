@@ -4,19 +4,21 @@
 \begin{itemize}
 	\item "Supervised learning" on \href{https://www.coursera.org/learn/supervised-learning?specialization=machine-learning-data-analysis}{\underline{Coursera}} (MIPT and Yandex)
 	\item "Unsupervised learning" on \href{https://www.coursera.org/learn/unsupervised-learning?specialization=machine-learning-data-analysis}{\underline{Coursera}} (MIPT and Yandex)
-	\item "Game theory" on \href{https://www.coursera.org/learn/gametheory}{\underline{Coursera}} (MIPT and Yandex)
+	% \item "Game theory" on \href{https://www.coursera.org/learn/gametheory}{\underline{Coursera}} (MIPT and Yandex)
 	% \item "Basics of HTML and CSS" on \href{https://www.coursera.org/learn/snovy-html-i-css?specialization=razrabotka-interfeysov}{\underline{Coursera}} (MIPT and Yandex)
 	% \item "Basics of JavaScript" on \href{https://www.coursera.org/learn/javascript-osnovy-i-funktsii}{\underline{Coursera}} (MIPT and Yandex)
-	\item "Technotrek" full-stack developer course by \href{https://track.mail.ru/}{\underline{Mail.ru}}
+	\item "Technotrack" full-stack developer course by \href{https://track.mail.ru/}{\underline{Mail.ru}}
 %\smallskip
 \end{itemize}
 
 
 \cvsection{Projects}
 \begin{itemize}
-    \item \href{https://github.com/alekseik1/ifg-py}{Ideal Fermi-gas properties} -- pip module for numeric calculation of Fermi-gas properties
-    \item \href{https://github.com/alekseik1/tt-ridesharing-backend}{Backend server on Flask} -- written as a part of "Technotrek" course
-    \item \href{https://github.com/alekseik1/2018-FS-11-Frontend-Kozharin}{React SPA snippets} -- written as a part of "Technotrek" course
+    \item \href{https://github.com/alekseik1/ifg-py}{Ideal Fermi-gas properties} -- pip module for numeric calculation of Fermi-gas properties.
+    \item \href{https://github.com/alekseik1/tt-ridesharing-backend}{Backend server on Flask} -- written as a part of "Technotrack" course.
+    % \item \href{https://github.com/alekseik1/2018-FS-11-Frontend-Kozharin}{React SPA snippets} -- written as a part of "Technotrack" course
+    \item \href{https://github.com/alekseik1/drec_stud_site}{Washing service} -- website and social network chat bot for washing machine services in a student dorm (booking, payments and room access control). Was contributed by me with a CI/CD pipeline, new VK (social network) bot, complete docker setup and a monitoring system (based on Graylog)
+    \item \href{https://github.com/alekseik1/advanced_python_1sem_2020}{Advanced Python course} -- a single-semester class that I held in the Fall 2020.
 \end{itemize}
 More projects can be found on \href{https://github.com/alekseik1/}{GitHub}.
 
@@ -27,26 +29,28 @@ More projects can be found on \href{https://github.com/alekseik1/}{GitHub}.
 %	\item Basic routine chemical methods: titration, pH measurement; electrical signal observing methods (CRO/DSO).
     \item SQL: 
         \begin{itemize}
-            \item \textbf{Postgres}: passed "Database design" course in "Technotrek" program;
-            \item \textbf{MySQL}: used in several projects before moving to ORM;
-            \item \textbf{Clickhouse}: actively used when worked at Mail.ru.
+            \item \textbf{Postgres}: passed "Database design" course in "Technotrack" program. Mostly used this dialect at Raiffeisen Bank and Mail.ru Group.
+            \item \textbf{MySQL}: used in several projects before switching to PostgreSQL.
+            \item \textbf{Clickhouse}: actively used when worked at Mail.ru Group.
+            \item \textbf{Hive}: used a lot with DWH system at Raiffeisen Bank (although Hive is is not strictly SQL-92 compatible).
         \end{itemize}
-    \item Python math stack: \textit{numpy}, \textit{matplotlib}, \textit{scipy}, \textit{sklearn}, \textit{pandas}, \textit{sympy}, \textit{jupyter}. 
     Some projects on GitHub: \href{https://github.com/alekseik1/phys\_labs}{\underline{physical experiments analysis}} and \href{https://github.com/alekseik1/machine\_learning\_coursera}{\underline{machine learning educational repo}}
     % \item Frontend development: experience with React+Redux, basics of HTML, CSS.
-    \item Backend Python development: 
+    \item Python development: 
         \begin{itemize}
             \item \textbf{Flask}, \textbf{FastAPI}: primary backend frameworks;
-            \item \textbf{SQLAlchemy}: ORM for Flask;
-            \item \textbf{OpenAPI}, \textbf{sphinx}: documentation management;
-            \item \textbf{asyncio}: for multithreaded programs optimization;
-            \item \textbf{Airflow}: set up data monitoring.
+            \item \textbf{SQLAlchemy}: preferable ORM;
+            \item \textbf{OpenAPI}, \textbf{sphinx}, \textbf{readthedocs}, \textbf{GitHub Pages}: documentation management;
+            \item \textbf{asyncio}, \textbf{aiohttp}, \textbf{aioredis}, \textbf{asyncpg}: I/O bounded tasks optimizations based on asynchronous computations;
+            \item \textbf{Airflow}: tasks scheduling and simple progress monitoring;
+            \item Math stack: \textit{numpy}, \textit{matplotlib}, \textit{scipy}, \textit{scikit-learn}, \textit{pandas}, \textit{sympy}, \textit{jupyter}, \textit{jupyterlab}
+            \item \textbf{pyspark}: main interface to Apache Spark;
+            \item \textbf{black + docformatter + isort + flake8}: for PEP-driven code style.
         \end{itemize}
     \item DevOps: 
         \begin{itemize}
             \item \textbf{docker}, \textbf{docker-compose}: primary deployment tools;
-            \item \textbf{Travis CI}: actively using in personal projects (together with \textbf{GitHub Actions});
-            \item \textbf{Gitlab CI}: using in enterprise.
+            \item \textbf{Travis CI}, \textbf{GitHub Actions}, \textbf{Gitlab CI}: use them for "test-release-deploy" cycle. Gitlab CI is prefered.
         \end{itemize}
 \end{itemize}
 
