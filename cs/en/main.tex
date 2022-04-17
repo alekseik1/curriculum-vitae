@@ -16,14 +16,8 @@
 %% You can always just use \marginpar{...} if you do
 %% not need to align the top of the contents to any
 %% \cvsection title in the "main" bar.
-\cvsection[page1sidebar]{Education}
-
-\input{mipt-masters}
-\divider
-
-\input{mipt-bachelor}
-
-\cvsection{Work experience}
+%% page1sidebar instructs to add page1sidebar.tex on the right side
+\cvsection[page1sidebar]{Work experience}
 \input{../../experience/en/raiff}
 \divider
 
@@ -34,6 +28,13 @@
 \input{../../experience/en/mapsme}
 \divider
 
-\input{../../experience/en/amgen}
+% \input{../../experience/en/amgen}
+
+\cvsection{Education}
+
+\input{mipt-masters}
+\divider
+
+\input{mipt-bachelor}
 
 \end{document}
