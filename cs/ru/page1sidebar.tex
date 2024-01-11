@@ -2,12 +2,8 @@
 
 \cvsection{Дополнительное образование}
 \begin{itemize}
-	% \item <<Обучение с учителем>> на \href{https://www.coursera.org/learn/supervised-learning?specialization=machine-learning-data-analysis}{\underline{Coursera}} (курс от МФТИ и Яндекс)
-	% \item <<Поиск структуры в данных>> на \href{https://www.coursera.org/learn/unsupervised-learning?specialization=machine-learning-data-analysis}{\underline{Coursera}} (курс от МФТИ и Яндекс)
-	% \item <<Теория игр>> на \href{https://www.coursera.org/learn/gametheory}{\underline{Coursera}} (курс от МФТИ и Яндекс)
-    \item <<Автоматизация пайплайнов, воспроизводимость и MLOps>> от \href{https://ml-repa.ru/reproducibility-pipelines-automation-mlops}{\underline{MLRepa}}
-	% \item "Basics of HTML and CSS" on \href{https://www.coursera.org/learn/snovy-html-i-css?specialization=razrabotka-interfeysov}{\underline{Coursera}} (MIPT and Yandex)
-	% \item "Basics of JavaScript" on \href{https://www.coursera.org/learn/javascript-osnovy-i-funktsii}{\underline{Coursera}} (MIPT and Yandex)
+    % \item <<Автоматизация пайплайнов, воспроизводимость и MLOps>> от \href{https://ml-repa.ru/reproducibility-pipelines-automation-mlops}{\underline{MLRepa}}
+    \item <<Публичные выступления>>: внутренний курс Яндекса от Романа Назарова
 	\item <<Технотрек>>: курс по full-stack разработке от \href{https://track.mail.ru/}{\underline{Mail.ru}}
 %\smallskip
 \end{itemize}
@@ -15,7 +11,7 @@
 
 \cvsection{Проекты}
 \begin{itemize}
-    \item \href{https://github.com/alekseik1/ifg-py}{Свойства идеального Ферми-газа} -- pip-модуль для численного подсчета свойств идеального Ферми-газа
+    % \item \href{https://github.com/alekseik1/ifg-py}{Свойства идеального Ферми-газа} -- pip-модуль для численного подсчета свойств идеального Ферми-газа
     \item \href{https://github.com/alekseik1/tt-ridesharing-backend}{Backend-сервер на Flask} -- написан в рамках курса <<Технотрек>>
     % \item \href{https://github.com/alekseik1/2018-FS-11-Frontend-Kozharin}{Сниппеты кодов для React SPA} -- написан в рамках курса <<Технотрек>>
     \item \href{https://github.com/alekseik1/drec_stud_site}{Сайт стиральной комнаты} -- сайт и бот ВК для стиральной комнаты общежития (бронирование, платежи и контроль доступа к комнате). Написал CI/CD пайплайн, бота VK с нуля, настроил докеризацию и оркестрацию (docker-compose) и мониторинг на Graylog.
@@ -26,32 +22,34 @@
 \cvsection{Умения и навыки}
 \begin{itemize}
 	\item Языки программирования: \\
-        \textbf{Python}, \textbf{C++}, \textbf{JavaScript}
+        \textbf{Python}, \textbf{C++}, \textbf{Golang}
 %	\item Basic routine chemical methods: titration, pH measurement; electrical signal observing methods (CRO/DSO).
     \item SQL:
         \begin{itemize}
-            \item \textbf{Postgres}: прошел курс <<Проектирование БД>> как часть программы <<Технотрек>>. Работал с соответствующим диалектом в Mail.ru и Raiffeisen bank.
+            \item \textbf{Postgres}: использовал в Яндексе и Райффайзен банке.
+            Искал и ускорял индексами узкие места, выбирал структуру таблиц
+            и работал с шардированными инсталляциями.
             % \item \textbf{MySQL}: использовал в некоторых проектах для прототипирования;
-            \item \textbf{Clickhouse}: активно использовал во время работы в Mail.ru.
-            \item \textbf{Hive}: активно использовал в DWH Райффайзен банка (хотя технически это не диалект SQL). 
+            \item \textbf{Clickhouse}: использовал в Mail.ru и Яндексе для оффлайн аналитики.
+            \item \textbf{Hive}: активно использовал в DWH Райффайзен банка для аналитики в больших данных.
         \end{itemize}
-    Некоторые проекты: \href{https://github.com/alekseik1/phys\_labs}{\underline{анализ физических опытов}} и \href{https://github.com/alekseik1/machine\_learning\_coursera}{\underline{учебный репозиторий по машинному обучению}}
+    % Некоторые проекты: \href{https://github.com/alekseik1/phys\_labs}{\underline{анализ физических опытов}} и \href{https://github.com/alekseik1/machine\_learning\_coursera}{\underline{учебный репозиторий по машинному обучению}}
     % \item Frontend development: experience with React+Redux, basics of HTML, CSS.
-    \item Разработка backend на Python:
+    \item Backend на Python:
         \begin{itemize}
-            \item \textbf{Flask}, \textbf{FastAPI}: основные фреймворки;
-            \item \textbf{SQLAlchemy}: ORM для Flask;
-            \item \textbf{OpenAPI}, \textbf{sphinx}, \textbf{readthedocs}, \textbf{GitHub Pages}: контроль документации;
+            \item \textbf{Flask}, \textbf{FastAPI}: использовал оба в связке с ORM.
+            \item \textbf{SQLAlchemy, GINO}: основные ORM;
+            \item \textbf{OpenAPI}, \textbf{sphinx}, \textbf{readthedocs}, \textbf{GitHub Pages}: использовал в коммерческой разработке и личных проектах;
             \item \textbf{asyncio}, \textbf{aiohttp}, \textbf{aioredis}, \textbf{asyncpg}: для оптимизации I/O bound задач через асинхронное выполнение;
-            \item \textbf{Airflow}: шедулинг задач и простой мониторинг их исполнения;
+            \item \textbf{Airflow}: писал пайплайны обработки и доставки данных на Spark;
             \item Научный стек Python: \textit{numpy}, \textit{matplotlib}, \textit{scipy}, \textit{sklearn}, \textit{pandas}, \textit{sympy}, \textit{jupyter}.
             \item \textbf{pyspark}: работал с Apache Spark через Python-обертку;
-            \item \textbf{black + docformatter + isort + flake8}: для соотвествия кода стандартам PEP;
+            % \item \textbf{black + docformatter + isort + flake8}: для соотвествия кода стандартам PEP;
         \end{itemize}
     \item DevOps:
         \begin{itemize}
             \item \textbf{docker}, \textbf{docker-compose}: основные инструменты для деплоя;
-            \item \textbf{Travis CI, GitHub Actions, Gitlab CI}: активно использую в личных проектах (вместе с \textbf{GitHub Actions});
+            \item \textbf{GitHub Actions, Gitlab CI}: использовал в Райффайзен банке и личных проектах;
         \end{itemize}
 \end{itemize}
 
