@@ -8,7 +8,7 @@ jobs:
       image: danteev/texlive:202009150206298488ac
     strategy:
       matrix:
-        lang: ["ru", "en", "de"]
+        lang: ["ru", "en"]
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
@@ -70,17 +70,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./main.pdf
           asset_name: CS_CV_ru.pdf
-          asset_content_type: application/pdf
-      - name: Download CS CV DE
-        uses: actions/download-artifact@v2
-        with:
-          name: cs_cv_de
-      - name: Upload CS CV DE
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./main.pdf
-          asset_name: CS_CV_de.pdf
           asset_content_type: application/pdf
